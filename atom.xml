@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://morn00.github.io</id>
+    <title>Morn&apos;s Blog</title>
+    <updated>2022-07-26T16:40:07.498Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://morn00.github.io"/>
+    <link rel="self" href="https://morn00.github.io/atom.xml"/>
+    <subtitle>&lt;b&gt;身体最重要，多喝热水&lt;/b&gt;</subtitle>
+    <logo>https://morn00.github.io/images/avatar.png</logo>
+    <icon>https://morn00.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2022, Morn&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[利用高可信域名以及CDN隐藏自己]]></title>
+        <id>https://morn00.github.io/post/li-yong-gao-ke-xin-yu-ming-yi-ji-cdn-yin-cang-zi-ji/</id>
+        <link href="https://morn00.github.io/post/li-yong-gao-ke-xin-yu-ming-yi-ji-cdn-yin-cang-zi-ji/">
+        </link>
+        <updated>2022-07-26T16:27:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>利用高可信域名以及CDN隐藏自己</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>利用高可信域名以及CDN隐藏自己</p>
+<!-- more -->
+<h1 id="利用高可信域名以及cdn隐藏自己">利用高可信域名以及CDN隐藏自己</h1>
+<p>参考：https://mp.weixin.qq.com/s/LGs_gf5CIOaMJMQcIiQCOA</p>
+<p><strong>原理</strong>：在CDN服务商注册加速域名（这个域名随便填，只要在这个服务商没有人注册过就行），比如ccx.google.com， 当注册成功后，向这个CDN的资源池任意IP 发送http请求，CDN就会根据 host中的ccx.google.com 转发到你个人CC服务器，达到隐藏的目的（注：国内的CDN必须实名）</p>
+<p>例如 使用华为CDN，按照要求添加完后，</p>
+<figure data-type="image" tabindex="1"><img src="https://morn00.github.io/post-images/1658853124076.png" alt="" loading="lazy"></figure>
+<p>从其他渠道获取华为CDN的IP，例如从奇安信Ti平台，获取到华为CDN的历史解析IP</p>
+<figure data-type="image" tabindex="2"><img src="https://morn00.github.io/post-images/1658853149686.png" alt="" loading="lazy"></figure>
+<p>就可以对其中任意IP进行发包了（host必须伪装成注册的加速域名），相应数据包就会转到个人服务器，达到隐藏的效果（同样可以利用上马CS之类的）</p>
+<figure data-type="image" tabindex="3"><img src="https://morn00.github.io/post-images/1658853172602.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HTTP 头修改插件]]></title>
+        <id>https://morn00.github.io/post/http-tou-xiu-gai-cha-jian/</id>
+        <link href="https://morn00.github.io/post/http-tou-xiu-gai-cha-jian/">
+        </link>
+        <updated>2022-04-15T06:23:39.000Z</updated>
+        <summary type="html"><![CDATA[<p>两个好用的 http header 修改插件</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>两个好用的 http header 修改插件</p>
+<!-- more -->
+<h3 id="1-x-forwarded-for-header">1、X-Forwarded-For Header</h3>
+<p>这个可以手工添加常用的一个文件头，用来绕过403</p>
+<figure data-type="image" tabindex="1"><img src="https://morn00.github.io/post-images/1650004021705.png" alt="" loading="lazy"></figure>
+<h3 id="2-modheader">2、ModHeader</h3>
+<p>这个我感觉更好用，里面内置了很多头，并且可以设置多个配置文件，不同场景用不同配置文件</p>
+<p><img src="https://morn00.github.io/post-images/1650004050516.png" alt="" loading="lazy"><br>
+<img src="https://morn00.github.io/post-images/1650004056424.png" alt="" loading="lazy"><br>
+<img src="https://morn00.github.io/post-images/1650004062927.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Docker 安装最新版AWVS14]]></title>
+        <id>https://morn00.github.io/post/docker-an-zhuang-zui-xin-ban-awvs14/</id>
+        <link href="https://morn00.github.io/post/docker-an-zhuang-zui-xin-ban-awvs14/">
+        </link>
+        <updated>2022-04-08T06:43:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>AWVS14 最新版 安装</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>AWVS14 最新版 安装</p>
+<!-- more -->
+<p><strong>1.</strong> <strong>概述</strong></p>
+<p>安装版本：14.4.210816098 Premium（高级版）</p>
+<p>部署简单，不需要考虑激活问题</p>
+<p><strong>2.</strong> <strong>部署</strong></p>
+<p>•安装docker，各系统命令不一样，自行安装，kali自带</p>
+<p>•docker pull secfa/docker-awvs  拉取镜像</p>
+<p>•docker run -it -d -p 13443:3443 secfa/docker-awvs  启动容器，外部监听端口13443</p>
+<p><strong>3.</strong> <strong>使用</strong></p>
+<p>•访问：https://YOUR_IP:13443/</p>
+<p>•用户名：admin@admin.com</p>
+<p>•密码：Admin123</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一些漏洞测试网站&靶场]]></title>
+        <id>https://morn00.github.io/post/hello-test/</id>
+        <link href="https://morn00.github.io/post/hello-test/">
+        </link>
+        <updated>2022-03-29T01:48:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近在搞一些渗透测试培训的课程，配合教材找了一些靶场网站，如下所示</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近在搞一些渗透测试培训的课程，配合教材找了一些靶场网站，如下所示</p>
+<!-- more -->
+<h2 id="在线靶场">在线靶场</h2>
+<p>用来做漏洞扫描、工具验证时候不错</p>
+<pre><code>AWVS 测试网站：  http://vulnweb.com/
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://morn00.github.io/post-images/1648543262421.png" alt="" loading="lazy"></figure>
+<h2 id="离线靶场">离线靶场</h2>
+<h3 id="vulfocus">vulfocus</h3>
+<pre><code>docker部署的离线靶场，Vulfocus 是一个漏洞集成平台，将漏洞环境 docker 镜像，放入即可使用，开箱即用。
+Vulfocus GitHub: https://github.com/fofapro/vulfocus
+在线 Vulfocus：
+    http://vulfocus.fofa.so/
+    http://vulfocus.io/
+    http://vulfocus.club/
+</code></pre>
+]]></content>
+    </entry>
+</feed>
